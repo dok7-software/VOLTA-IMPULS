@@ -11,14 +11,14 @@ export function MethodologySection({ content }: MethodologySectionProps) {
   return (
     <section
       id="metodologia"
-      className="flex min-h-screen items-center bg-brand-cream text-[#16202a]"
+      className="flex min-h-screen items-center bg-brand-cream text-brand-ink"
     >
       <Container className="w-full py-24 lg:py-30">
         <h2 className={cn(methodologyType.title, "mb-6")}>
           {content.titlePrefix}{" "}
           <span className="text-brand-green-dark">{content.titleHighlight}</span>
         </h2>
-        <p className={cn(methodologyType.subtitle, "mb-16 text-[#3a2d52]")}>
+        <p className={cn(methodologyType.subtitle, "mb-16 text-brand-ink")}>
           {content.subtitle}
         </p>
 
@@ -39,14 +39,14 @@ export function MethodologySection({ content }: MethodologySectionProps) {
                 style={{
                   background:
                     step.progress === 100
-                      ? "#1fa85c"
-                      : `linear-gradient(90deg, #1fa85c ${step.progress}%, #d8cfbb ${step.progress}%)`,
+                      ? "#17d479"
+                      : `linear-gradient(90deg, #17d479 ${step.progress}%, #d8cfbb ${step.progress}%)`,
                 }}
               />
               <h3 className={cn(methodologyType.stepTitle, "mb-3.5")}>
                 {step.title}
               </h3>
-              <p className={cn(methodologyType.stepDescription, "text-[#5a6470]")}>
+              <p className={cn(methodologyType.stepDescription, "text-brand-ink")}>
                 {step.description}
               </p>
             </div>

@@ -21,8 +21,8 @@ export function ButtonLink({
       className={cn(
         sharedType.button,
         "inline-flex items-center justify-center rounded-full px-6 py-3.5 transition-opacity hover:opacity-90",
-        variant === "primary" && "bg-brand-green text-[#06140c]",
-        variant === "secondary" && "bg-brand-green px-7 py-4 text-[#06140c]",
+        variant === "primary" && "bg-brand-green text-brand-ink",
+        variant === "secondary" && "bg-brand-green px-7 py-4 text-brand-ink",
         variant === "outline-light" &&
           "border border-white/40 font-semibold text-white",
         className,

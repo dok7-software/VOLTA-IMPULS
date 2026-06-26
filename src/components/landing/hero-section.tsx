@@ -42,7 +42,7 @@ export function HeroSection({ content }: HeroSectionProps) {
         <Container variant="tight" className="flex flex-1 flex-col justify-center py-10">
           <div className="w-full max-w-3xl md:ml-10 lg:ml-20 xl:ml-28">
             <div className="mb-8 inline-flex w-fit items-center gap-2.5 rounded-full border border-brand-green/55 bg-[rgba(8,11,15,.35)] px-5 py-2.5">
-              <span className="h-2 w-2 rounded-full bg-brand-green shadow-[0_0_10px_#38e07b]" />
+              <span className="h-2 w-2 rounded-full bg-brand-green shadow-[0_0_10px_#17d479]" />
               <span className={cn(heroType.badge, "text-[#cfe9d9]")}>
                 {content.badge}
               </span>

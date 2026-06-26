@@ -20,23 +20,10 @@ function SocialIcon({ children }: { children: React.ReactNode }) {
   );
 }
 
-function LogoPlaceholder({ label }: { label: string }) {
-  return (
-    <div
-      className={cn(
-        footerType.placeholder,
-        "flex h-10 items-center justify-center rounded-lg border border-dashed border-white/14 text-[#6b7480]",
-      )}
-    >
-      {label}
-    </div>
-  );
-}
-
 export function LandingFooter({ brand, content }: LandingFooterProps) {
   return (
     <footer className={cn(footerType.body, "border-t border-white/6 bg-[#080b0f]")}>
-      <Container className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
+      <Container className="grid gap-12 py-16 md:grid-cols-2 lg:gap-12">
         <div>
           <p className={cn(footerType.brand, "mb-4 text-white")}>{brand}</p>
           <p className="mb-5 max-w-60 text-[#7e8893]">{content.description}</p>
@@ -62,23 +49,6 @@ export function LandingFooter({ brand, content }: LandingFooterProps) {
 
         <div>
           <p className={cn(footerType.columnTitle, "mb-5 text-[#5d6772]")}>
-            {content.linksTitle}
-          </p>
-          <div className="flex flex-col gap-3">
-            {content.links.map((link) => (
-              <Link
-                key={link.href + link.label}
-                href={link.href}
-                className={cn(footerType.link, "text-[#9aa3ae] hover:text-white")}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <p className={cn(footerType.columnTitle, "mb-5 text-[#5d6772]")}>
             {content.contactTitle}
           </p>
           <div className="flex flex-col gap-3">
@@ -90,17 +60,6 @@ export function LandingFooter({ brand, content }: LandingFooterProps) {
               >
                 {link.label}
               </Link>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <p className={cn(footerType.columnTitle, "mb-5 text-[#5d6772]")}>
-            {content.supportTitle}
-          </p>
-          <div className="flex flex-col gap-3">
-            {content.sponsors.map((sponsor) => (
-              <LogoPlaceholder key={sponsor} label={sponsor} />
             ))}
           </div>
         </div>

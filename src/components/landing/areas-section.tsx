@@ -62,9 +62,9 @@ export function AreasSection({ content }: AreasSectionProps) {
   return (
     <section
       id="ambits"
-      className="relative flex min-h-screen items-center overflow-hidden bg-[#0d1218]"
+      className="relative flex min-h-screen items-center overflow-hidden bg-[#1e1729]"
     >
-      <div className="pointer-events-none absolute -top-28 -right-28 h-120 w-120 rounded-full bg-[radial-gradient(circle,rgba(56,224,123,.10),transparent_70%)]" />
+      <div className="pointer-events-none absolute -top-28 -right-28 h-120 w-120 rounded-full bg-[radial-gradient(circle,rgba(23,212,121,.10),transparent_70%)]" />
 
       <Container className="relative py-24 lg:py-30">
         <div className="mb-16 text-center">
@@ -83,7 +83,7 @@ export function AreasSection({ content }: AreasSectionProps) {
           {content.items.map((area) => (
             <article
               key={area.title}
-              className="rounded-2xl border border-white/7 bg-[#151a21] p-8 lg:p-9"
+              className="rounded-2xl border border-white/7 bg-[#262038] p-8 lg:p-9"
             >
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green">
                 <AreaIconSvg type={area.icon} />

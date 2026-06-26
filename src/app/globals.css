@@ -8,8 +8,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand-green: #38e07b;
-  --color-brand-green-dark: #1fa85c;
+  --color-brand-green: #17d479;
+  --color-brand-green-dark: #17d479;
+  --color-brand-ink: #643e64;
   --color-brand-cream: #f3eee3;
   --font-sans: var(--font-inter);
 }

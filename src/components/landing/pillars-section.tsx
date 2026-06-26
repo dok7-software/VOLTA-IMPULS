@@ -60,14 +60,14 @@ export function PillarsSection({ content }: PillarsSectionProps) {
   return (
     <section
       id="pilars"
-      className="flex min-h-screen items-center bg-[#efe9dc] text-[#16202a]"
+      className="flex min-h-screen items-center bg-[#efe9dc] text-brand-ink"
     >
       <Container className="w-full py-24 lg:py-30">
         <h2 className={cn(pillarsType.title, "mb-6 text-center")}>
           {content.titlePrefix}{" "}
           <span className="text-brand-green-dark">{content.titleHighlight}</span>
         </h2>
-        <p className={cn(pillarsType.subtitle, "mx-auto mb-16 max-w-3xl text-[#3a2d52]")}>
+        <p className={cn(pillarsType.subtitle, "mx-auto mb-16 max-w-3xl text-brand-ink")}>
           {content.subtitle}
         </p>
 
@@ -79,7 +79,7 @@ export function PillarsSection({ content }: PillarsSectionProps) {
             >
               <div
                 className={`mb-5 flex justify-center ${
-                  pillar.accent === "green" ? "text-brand-green-dark" : "text-[#3a2d52]"
+                  pillar.accent === "green" ? "text-brand-green-dark" : "text-brand-ink"
                 }`}
               >
                 <PillarIconSvg type={pillar.icon} />
@@ -88,12 +88,12 @@ export function PillarsSection({ content }: PillarsSectionProps) {
                 className={cn(
                   pillarsType.itemTitle,
                   "mb-3.5",
-                  pillar.accent === "green" ? "text-brand-green-dark" : "text-[#3a2d52]",
+                  pillar.accent === "green" ? "text-brand-green-dark" : "text-brand-ink",
                 )}
               >
                 {pillar.title}
               </h3>
-              <p className={cn(pillarsType.itemDescription, "text-[#5a6470]")}>
+              <p className={cn(pillarsType.itemDescription, "text-brand-ink")}>
                 {pillar.description}
               </p>
             </article>

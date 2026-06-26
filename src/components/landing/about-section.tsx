@@ -13,7 +13,7 @@ export function AboutSection({ content }: AboutSectionProps) {
   return (
     <section
       id="programa"
-      className="flex min-h-screen items-center bg-brand-cream text-[#16202a]"
+      className="flex min-h-screen items-center bg-brand-cream text-brand-ink"
     >
       <Container className="grid w-full items-center gap-16 py-24 lg:grid-cols-2 lg:gap-20 lg:py-30">
         <div>
@@ -27,7 +27,7 @@ export function AboutSection({ content }: AboutSectionProps) {
           {content.paragraphs.map((paragraph) => (
             <p
               key={paragraph.slice(0, 40)}
-              className={cn(aboutType.paragraph, "mb-6 text-[#4b5560] last:mb-0")}
+              className={cn(aboutType.paragraph, "mb-6 text-brand-ink last:mb-0")}
             >
               {paragraph}
             </p>
@@ -38,9 +38,9 @@ export function AboutSection({ content }: AboutSectionProps) {
           <div className="flex h-72 items-center justify-center sm:h-90">
             <CircularDiagram />
           </div>
-          <div className="rounded-2xl bg-brand-cream p-5 text-[#16202a] sm:p-6">
+          <div className="rounded-2xl bg-brand-cream p-5 text-brand-ink sm:p-6">
             <p className={cn(aboutType.cardTitle, "mb-1.5")}>{content.cardTitle}</p>
-            <p className={cn(aboutType.cardText, "text-[#5a6470]")}>{content.cardText}</p>
+            <p className={cn(aboutType.cardText, "text-brand-ink")}>{content.cardText}</p>
           </div>
         </div>
       </Container>

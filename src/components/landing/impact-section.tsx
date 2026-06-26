@@ -30,9 +30,9 @@ export function ImpactSection({ content }: ImpactSectionProps) {
   return (
     <section
       id="impacte"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-linear-to-br from-[#2a2040] via-[#1d1730] to-[#241733]"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-[#583357]"
     >
-      <div className="pointer-events-none absolute -bottom-24 -left-20 h-110 w-110 rounded-full bg-[radial-gradient(circle,rgba(173,86,224,.22),transparent_70%)]" />
+      <div className="pointer-events-none absolute -bottom-24 -left-20 h-110 w-110 rounded-full bg-[radial-gradient(circle,rgba(100,62,87,.35),transparent_70%)]" />
 
       <Container className="relative py-24 lg:py-30">
         <SectionLabel className={cn(impactType.label, "mb-7")}>{content.label}</SectionLabel>
@@ -43,7 +43,7 @@ export function ImpactSection({ content }: ImpactSectionProps) {
           {content.description}
         </p>
 
-        <div className="mb-10 overflow-hidden rounded-2xl border border-white/10 bg-[rgba(15,12,26,.45)] sm:grid sm:grid-cols-2">
+        <div className="mb-10 overflow-hidden rounded-2xl border border-white/10 bg-[#4a2b49] sm:grid sm:grid-cols-2">
           {content.stats.map((stat, index) => (
             <div
               key={stat.label}
@@ -69,7 +69,7 @@ export function ImpactSection({ content }: ImpactSectionProps) {
               key={badge}
               className={cn(
                 impactType.badge,
-                "flex items-center gap-2.5 rounded-full border border-white/10 bg-white/6 px-5 py-3.5 text-[#e6e1f0]",
+                "flex items-center gap-2.5 rounded-full border border-white/10 bg-[#4a2b49] px-5 py-3.5 text-[#e6e1f0]",
               )}
             >
               <CheckIcon />

@@ -16,7 +16,7 @@ export function CircularDiagram() {
         cy={CY}
         r={INNER_R}
         fill="none"
-        stroke="rgba(56,224,123,.38)"
+        stroke="rgba(23,212,121,.38)"
         strokeWidth="1.5"
       />
 
@@ -25,7 +25,7 @@ export function CircularDiagram() {
         cy={CY}
         r={OUTER_R}
         fill="none"
-        stroke="rgba(56,224,123,.22)"
+        stroke="rgba(23,212,121,.22)"
         strokeWidth="1.5"
       />
 
@@ -34,7 +34,7 @@ export function CircularDiagram() {
         cy={CY}
         r={OUTER_R}
         fill="none"
-        stroke="#38e07b"
+        stroke="#17d479"
         strokeWidth="4"
         strokeDasharray={`${THICK_ARC} ${THIN_ARC}`}
         strokeLinecap="round"

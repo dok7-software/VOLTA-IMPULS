@@ -159,7 +159,7 @@ export function InscriptionForm({ locale, form }: InscriptionFormProps) {
         disabled={status === "submitting" || status === "success"}
         className={cn(
           ctaType.formSubmit,
-          "mt-6 w-full rounded-full bg-brand-green px-10 py-4 text-[#06140c] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto",
+          "mt-6 w-full rounded-full bg-brand-green px-10 py-4 text-brand-ink transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto",
         )}
       >
         {status === "submitting" ? form.submitting : form.submit}

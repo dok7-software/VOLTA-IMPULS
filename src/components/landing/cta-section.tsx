@@ -15,7 +15,7 @@ export function CtaSection({ locale, content }: CtaSectionProps) {
   return (
     <section
       id="contacte"
-      className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_70%_50%,rgba(56,224,123,.10),transparent_55%),#0b0f14]"
+      className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_70%_50%,rgba(23,212,121,.10),transparent_55%),#0b0f14]"
     >
       <Container className="py-24 lg:py-30">
         <div className="text-center">
