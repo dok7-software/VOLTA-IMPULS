@@ -1,2 +1,2 @@
-export const APP_NAME = "VOLTA-IMPULS";
-export const APP_DESCRIPTION = "VOLTA-IMPULS application";
+/** @deprecated Use i18n dictionary `brand` instead. Kept for legacy layout components. */
+export const APP_NAME = "CIRCULAR IMPULS";
