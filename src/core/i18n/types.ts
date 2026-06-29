@@ -1,4 +1,4 @@
-export type AreaIcon = "sun" | "network" | "cycle";
+export type AreaIcon = "sun" | "network" | "cycle" | "leaf";
 export type PillarIcon = "clock" | "graduation" | "flask" | "handshake";
 export type PillarAccent = "purple" | "green";
 
@@ -19,14 +19,15 @@ export type Dictionary = {
     titleHighlight: string;
     titleLine2: string;
     subtitle: string;
+    subtitleLine2: string;
     ctaPrimary: string;
     ctaSecondary: string;
     fundedBy: string;
     fseLogo: { src: string; alt: string };
-    generalitatLogoAlt: string;
+    generalitatLogo: { src: string; alt: string };
+    pimecLogo: { src: string; alt: string };
     fundingNote: string;
     programBy: string;
-    programOrg: string;
     stats: { value: string; label: string }[];
   };
   about: {
@@ -57,18 +58,16 @@ export type Dictionary = {
       number: string;
       title: string;
       description: string;
+      note?: string;
       progress: number;
     }[];
   };
   pillars: {
     titlePrefix: string;
     titleHighlight: string;
-    subtitle: string;
     items: {
-      icon: PillarIcon;
-      accent: PillarAccent;
-      title: string;
-      description: string;
+      heading: string;
+      body: string;
     }[];
   };
   impact: {
@@ -84,12 +83,14 @@ export type Dictionary = {
     titleHighlight: string;
     description: string;
     form: {
-      firstName: string;
-      lastName: string;
+      name: string;
       email: string;
       phone: string;
-      project: string;
-      message: string;
+      location: string;
+      hasCompany: string;
+      hasCompanyYes: string;
+      hasCompanyNo: string;
+      sector: string;
       consent: string;
       submit: string;
       submitting: string;

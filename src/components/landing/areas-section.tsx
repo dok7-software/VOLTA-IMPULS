@@ -44,6 +44,15 @@ function AreaIconSvg({ type }: { type: AreaIcon }) {
     );
   }
 
+  if (type === "leaf") {
+    return (
+      <svg {...props}>
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+      </svg>
+    );
+  }
+
   return (
     <svg {...props}>
       <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
@@ -79,7 +88,7 @@ export function AreasSection({ content }: AreasSectionProps) {
           </p>
         </div>
 
-        <div className="grid gap-7 lg:grid-cols-3">
+        <div className="grid gap-7 sm:grid-cols-2">
           {content.items.map((area) => (
             <article
               key={area.title}
@@ -95,16 +104,20 @@ export function AreasSection({ content }: AreasSectionProps) {
                 {area.subtitle}
               </p>
               <ul className="flex flex-col gap-4">
-                {area.bullets.map((item) => (
+                {area.bullets.map((item, idx) => (
                   <li
-                    key={item.sector}
+                    key={idx}
                     className={cn(areasType.itemBullet, "flex gap-3 text-[#9aa3ae]")}
                   >
-                    <span className="text-brand-green">●</span>
+                    <span className="mt-0.5 shrink-0 text-brand-green">●</span>
                     <span>
-                      <strong className={cn(areasType.itemSector, "text-[#dde2e8]")}>
-                        {item.sector}:
-                      </strong>{" "}
+                      {item.sector ? (
+                        <>
+                          <strong className={cn(areasType.itemSector, "text-[#dde2e8]")}>
+                            {item.sector}:
+                          </strong>{" "}
+                        </>
+                      ) : null}
                       {item.text}
                     </span>
                   </li>

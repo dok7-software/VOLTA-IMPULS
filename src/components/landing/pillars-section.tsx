@@ -1,56 +1,7 @@
-import type { Dictionary, PillarIcon } from "@/core/i18n/types";
+import type { Dictionary } from "@/core/i18n/types";
 import { pillarsType } from "@/core/typography";
 import { Container } from "@/components/landing/container";
 import { cn } from "@/lib/utils";
-
-function PillarIconSvg({ type }: { type: PillarIcon }) {
-  const props = {
-    width: 42,
-    height: 42,
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 1.7,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-  };
-
-  switch (type) {
-    case "clock":
-      return (
-        <svg {...props}>
-          <circle cx="12" cy="12" r="10" />
-          <polyline points="12 6 12 12 16 14" />
-        </svg>
-      );
-    case "graduation":
-      return (
-        <svg {...props}>
-          <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
-          <path d="M22 10v6" />
-          <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
-        </svg>
-      );
-    case "flask":
-      return (
-        <svg {...props}>
-          <path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" />
-          <path d="M6.453 15h11.094" />
-          <path d="M8.5 2h7" />
-        </svg>
-      );
-    case "handshake":
-      return (
-        <svg {...props}>
-          <path d="m11 17 2 2a1 1 0 1 0 3-3" />
-          <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
-          <path d="m21 3 1 11h-2" />
-          <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
-          <path d="M3 4h8" />
-        </svg>
-      );
-  }
-}
 
 type PillarsSectionProps = {
   content: Dictionary["pillars"];
@@ -63,41 +14,27 @@ export function PillarsSection({ content }: PillarsSectionProps) {
       className="flex min-h-screen items-center bg-[#efe9dc] text-brand-ink"
     >
       <Container className="w-full py-24 lg:py-30">
-        <h2 className={cn(pillarsType.title, "mb-6 text-center")}>
-          {content.titlePrefix}{" "}
-          <span className="text-brand-green-dark">{content.titleHighlight}</span>
-        </h2>
-        <p className={cn(pillarsType.subtitle, "mx-auto mb-16 max-w-3xl text-brand-ink")}>
-          {content.subtitle}
-        </p>
+        <div>
+          <h2 className={cn(pillarsType.title, "mb-16 text-center")}>
+            {content.titlePrefix}{" "}
+            <span className="text-brand-green-dark">{content.titleHighlight}</span>
+          </h2>
 
-        <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
-          {content.items.map((pillar) => (
-            <article
-              key={pillar.title}
-              className="rounded-2xl border border-[#e4dccb] bg-[#fbf9f3] px-6 py-10 text-center"
-            >
-              <div
-                className={`mb-5 flex justify-center ${
-                  pillar.accent === "green" ? "text-brand-green-dark" : "text-brand-ink"
-                }`}
+          <div className="grid gap-7 sm:grid-cols-3">
+            {content.items.map((item, i) => (
+              <article
+                key={i}
+                className="rounded-2xl border border-[#e4dccb] bg-[#fbf9f3] px-6 py-8 lg:px-8 lg:py-10"
               >
-                <PillarIconSvg type={pillar.icon} />
-              </div>
-              <h3
-                className={cn(
-                  pillarsType.itemTitle,
-                  "mb-3.5",
-                  pillar.accent === "green" ? "text-brand-green-dark" : "text-brand-ink",
-                )}
-              >
-                {pillar.title}
-              </h3>
-              <p className={cn(pillarsType.itemDescription, "text-brand-ink")}>
-                {pillar.description}
-              </p>
-            </article>
-          ))}
+                <h3 className={cn(pillarsType.itemHeading, "mb-4 text-brand-ink")}>
+                  {item.heading}
+                </h3>
+                <p className={cn(pillarsType.itemBody, "text-brand-ink/75")}>
+                  {item.body}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

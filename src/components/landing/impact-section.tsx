@@ -35,13 +35,12 @@ export function ImpactSection({ content }: ImpactSectionProps) {
       <div className="pointer-events-none absolute -bottom-24 -left-20 h-110 w-110 rounded-full bg-[radial-gradient(circle,rgba(100,62,87,.35),transparent_70%)]" />
 
       <Container className="relative py-24 lg:py-30">
-        <SectionLabel className={cn(impactType.label, "mb-7")}>{content.label}</SectionLabel>
-        <h2 className={cn(impactType.title, "mb-5 max-w-2xl text-white")}>
+        {content.label && (
+          <SectionLabel className={cn(impactType.label, "mb-7")}>{content.label}</SectionLabel>
+        )}
+        <h2 className={cn(impactType.title, "mb-12 max-w-3xl text-white")}>
           {content.title}
         </h2>
-        <p className={cn(impactType.description, "mb-12 max-w-2xl text-[#b9b2cc]")}>
-          {content.description}
-        </p>
 
         <div className="mb-10 overflow-hidden rounded-2xl border border-white/10 bg-[#4a2b49] sm:grid sm:grid-cols-2">
           {content.stats.map((stat, index) => (

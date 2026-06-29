@@ -5,29 +5,36 @@ import { ButtonLink } from "@/components/landing/button-link";
 import { Container } from "@/components/landing/container";
 import { cn } from "@/lib/utils";
 
-const GENERALITAT_LOGO = "/images/generalitat.png";
+const heroContentClassName =
+  "w-full max-w-3xl md:ml-10 lg:ml-20 xl:ml-28";
 
 type HeroSectionProps = {
   content: Dictionary["hero"];
 };
 
-function FundingLogo({ src, alt }: { src: string; alt: string }) {
+function HeroPartnerLogo({
+  src,
+  alt,
+  className,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+}) {
   return (
-    <div className="flex items-center rounded-md bg-white px-3 py-2">
-      <Image
-        src={src}
-        alt={alt}
-        width={180}
-        height={40}
-        className="h-10 w-auto max-w-44 object-contain"
-      />
-    </div>
+    <Image
+      src={src}
+      alt={alt}
+      width={220}
+      height={56}
+      className={cn("h-8 w-auto max-w-44 object-contain sm:h-10 sm:max-w-52", className)}
+    />
   );
 }
 
 export function HeroSection({ content }: HeroSectionProps) {
   return (
-    <section className="relative -mt-24 flex min-h-screen flex-col overflow-hidden bg-[#0b0f14] pt-24">
+    <section className="relative -mt-24 flex h-dvh max-h-dvh flex-col overflow-hidden bg-[#0b0f14] pt-24">
       <Image
         src="/images/hero.png"
         alt={content.imageAlt}
@@ -38,17 +45,22 @@ export function HeroSection({ content }: HeroSectionProps) {
       />
       <div className="absolute inset-0 bg-linear-to-b from-[rgba(8,11,15,.45)] via-[rgba(8,11,15,.35)] to-[rgba(8,11,15,.78)]" />
 
-      <div className="relative flex flex-1 flex-col">
-        <Container variant="tight" className="flex flex-1 flex-col justify-center py-10">
-          <div className="w-full max-w-3xl md:ml-10 lg:ml-20 xl:ml-28">
-            <div className="mb-8 inline-flex w-fit items-center gap-2.5 rounded-full border border-brand-green/55 bg-[rgba(8,11,15,.35)] px-5 py-2.5">
+      <div className="relative flex min-h-0 flex-1 flex-col">
+        <Container
+          variant="tight"
+          className="flex min-h-0 flex-1 flex-col py-4 @max-h-[820px]:py-3 sm:py-8 lg:py-10"
+        >
+          <div className={cn(heroContentClassName, "shrink-0")}>
+            <div className="ml-12 inline-flex w-fit items-center gap-2.5 rounded-full border border-brand-green/55 bg-[rgba(8,11,15,.35)] px-5 py-2.5">
               <span className="h-2 w-2 rounded-full bg-brand-green shadow-[0_0_10px_#17d479]" />
               <span className={cn(heroType.badge, "text-[#cfe9d9]")}>
                 {content.badge}
               </span>
             </div>
+          </div>
 
-            <h1 className={cn(heroType.title, "mb-5 max-w-3xl text-white")}>
+          <div className={cn(heroContentClassName, "mt-2 shrink-0 sm:mt-3 lg:mt-4")}>
+            <h1 className={cn(heroType.title, "mb-2 max-w-3xl text-white sm:mb-3 lg:mb-4")}>
               {content.titleLine1}
               <br />
               {content.titleArticle}
@@ -61,11 +73,15 @@ export function HeroSection({ content }: HeroSectionProps) {
               ) : null}
             </h1>
 
-            <p className={cn(heroType.subtitle, "mb-12 max-w-xl text-[#dfe4ea]")}>
+            <p className={cn(heroType.subtitle, "mb-2 max-w-2xl text-[#dfe4ea] sm:mb-3")}>
               {content.subtitle}
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <p className={cn(heroType.subtitle, "mb-4 max-w-2xl text-[#dfe4ea] sm:mb-6 lg:mb-8")}>
+              {content.subtitleLine2}
+            </p>
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
               <ButtonLink href="#contacte" variant="secondary">
                 {content.ctaPrimary}
               </ButtonLink>
@@ -74,39 +90,52 @@ export function HeroSection({ content }: HeroSectionProps) {
               </ButtonLink>
             </div>
           </div>
+
+          <div aria-hidden="true" className="min-h-0 flex-1" />
         </Container>
 
-        <Container variant="tight" className="shrink-0 pb-8">
-          <div className="mb-6 flex w-full flex-wrap items-end justify-end gap-8 lg:gap-10">
-            <div className="text-right">
-              <p className={cn(heroType.fundedBy, "mb-2.5 text-[#c4ccd5]")}>
+        <Container variant="tight" className="shrink-0 pb-4 @max-h-[820px]:pb-3 sm:pb-6 lg:pb-8">
+          <div className="mb-3 grid w-full grid-cols-2 items-end gap-3 @max-h-[820px]:mb-2 sm:mb-4 sm:flex sm:flex-wrap sm:items-end sm:justify-end sm:gap-6 lg:mb-6 lg:gap-10">
+            <div className="text-left">
+              <p className={cn(heroType.fundedBy, "mb-1.5 text-[#c4ccd5] sm:mb-2.5")}>
                 {content.fundedBy}
               </p>
-              <div className="mb-2 flex flex-wrap items-center justify-end gap-3">
-                <FundingLogo src={content.fseLogo.src} alt={content.fseLogo.alt} />
-                <FundingLogo
-                  src={GENERALITAT_LOGO}
-                  alt={content.generalitatLogoAlt}
+              <div className="mb-1 flex flex-wrap items-center justify-start gap-3 sm:mb-2 sm:gap-4">
+                <HeroPartnerLogo
+                  src={content.fseLogo.src}
+                  alt={content.fseLogo.alt}
+                />
+                <HeroPartnerLogo
+                  src={content.generalitatLogo.src}
+                  alt={content.generalitatLogo.alt}
+                  className="sm:h-11"
                 />
               </div>
-              <p className={cn(heroType.fundingNote, "ml-auto max-w-80 text-[#9aa3ae]")}>
+              <p
+                className={cn(
+                  heroType.fundingNote,
+                  "max-w-[24rem] whitespace-pre-line text-[#9aa3ae] sm:max-w-[26rem]",
+                )}
+              >
                 {content.fundingNote}
               </p>
             </div>
             <div className="text-right">
-              <p className={cn(heroType.programBy, "mb-2.5 text-[#c4ccd5]")}>
+              <p className={cn(heroType.programBy, "mb-1.5 text-[#c4ccd5] sm:mb-2.5")}>
                 {content.programBy}
               </p>
-              <p className={cn(heroType.programOrg, "text-white")}>
-                {content.programOrg}
-              </p>
+              <HeroPartnerLogo
+                src={content.pimecLogo.src}
+                alt={content.pimecLogo.alt}
+                className="ml-auto h-7 sm:ml-0 sm:h-9"
+              />
             </div>
           </div>
 
           <div
             className={cn(
               heroType.stat,
-              "flex flex-wrap gap-8 border-t border-white/12 pt-5 text-[#dfe4ea] sm:gap-12",
+              "flex flex-wrap gap-4 border-t border-white/12 pt-3 text-[#dfe4ea] @max-h-[820px]:gap-3 @max-h-[820px]:pt-2.5 sm:gap-8 sm:pt-5 lg:gap-12",
             )}
           >
             {content.stats.map((stat) => (
