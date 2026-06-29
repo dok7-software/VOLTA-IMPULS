@@ -43,6 +43,11 @@ body {
   font-family: var(--font-clear-sans), sans-serif;
 }
 
+.font-clear-sans-regular {
+  font-family: var(--font-clear-sans-regular), sans-serif;
+  font-weight: 400;
+}
+
 .font-cy-grotesk {
   font-family: var(--font-cy-grotesk), sans-serif;
   font-weight: 700;

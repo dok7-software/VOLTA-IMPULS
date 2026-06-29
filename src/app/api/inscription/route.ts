@@ -14,6 +14,7 @@ export async function POST(request: Request) {
   const parsed = inscriptionSchema.safeParse(body);
 
   if (!parsed.success) {
+    console.error("[inscription] validation error:", JSON.stringify(parsed.error.flatten()));
     return NextResponse.json({ error: "validation" }, { status: 400 });
   }
 

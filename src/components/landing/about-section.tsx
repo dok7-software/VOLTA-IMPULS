@@ -2,7 +2,6 @@ import type { Dictionary } from "@/core/i18n/types";
 import { aboutType } from "@/core/typography";
 import { CircularDiagram } from "@/components/landing/circular-diagram";
 import { Container } from "@/components/landing/container";
-import { SectionLabel } from "@/components/landing/section-label";
 import { cn } from "@/lib/utils";
 
 type AboutSectionProps = {
@@ -17,12 +16,12 @@ export function AboutSection({ content }: AboutSectionProps) {
     >
       <Container className="grid w-full items-center gap-16 py-24 lg:grid-cols-2 lg:gap-20 lg:py-30">
         <div>
-          <SectionLabel variant="cream" className={cn(aboutType.label, "mb-7")}>
-            {content.label}
-          </SectionLabel>
           <h2 className={cn(aboutType.title, "mb-9")}>
-            {content.titlePrefix}{" "}
-            <span className="text-brand-green-dark">{content.titleHighlight}</span>
+            {content.label.split("Circular Impuls?").map((part, i, arr) => (
+              i < arr.length - 1 ? (
+                <span key={i}>{part}<span className="text-brand-green-dark">Circular Impuls?</span></span>
+              ) : part
+            ))}
           </h2>
           {content.paragraphs.map((paragraph) => (
             <p

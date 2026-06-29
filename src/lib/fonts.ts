@@ -33,6 +33,12 @@ export const fontClearSans = localFont({
   variable: "--font-clear-sans",
 });
 
+export const fontClearSansRegular = localFont({
+  src: "../fonts/ClearSans-Regular.ttf",
+  weight: "400",
+  variable: "--font-clear-sans-regular",
+});
+
 export const fontCyGrotesk = localFont({
   src: "../fonts/CyGrotesk-GrandBold.woff2",
   weight: "700",
@@ -45,5 +51,6 @@ export const fontVariables = [
   fontBricolage.variable,
   fontNeueMontreal.variable,
   fontClearSans.variable,
+  fontClearSansRegular.variable,
   fontCyGrotesk.variable,
 ].join(" ");

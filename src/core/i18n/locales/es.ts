@@ -13,24 +13,32 @@ const es = {
   hero: {
     imageAlt: "Personas caminando por la ciudad",
     badge: "Plazas abiertas hasta el [fecha por confirmar]",
-    titleLine1: "Innovación para",
-    titleArticle: "tu ",
-    titleHighlight: "empresa",
+    titleLine1: "Tu modelo de negocio,",
+    titleArticle: "",
+    titleHighlight: "más sostenible y más rentable",
     titleLine2: "",
     subtitle:
-      "Impulsa tu proyecto en energía circular. Valida tu idea y construye un modelo de negocio escalable y arraigado al territorio",
-    ctaPrimary: "Presenta tu candidatura al Programa PRIMER 2026",
+      "¿Tienes una empresa, eres emprendedor o emprendedora, o lideras una spin-off con actividad en el Pallars?",
+    subtitleLine2:
+      "Este programa te ayuda a integrar la energía circular en tu modelo de negocio — y a hacerlo rentable.",
+    ctaPrimary: "Inscríbete",
     ctaSecondary: "Conoce más",
     fundedBy: "Financiado por:",
     fseLogo: {
-      src: "/images/FSE+-es.png",
-      alt: "Financiado por la Unión Europea",
+      src: "/images/logo-union-europea.png",
+      alt: "Cofinanciado por la Unión Europea",
     },
-    generalitatLogoAlt: "Generalitat de Catalunya",
+    generalitatLogo: {
+      src: "/images/logo-generalitat.png",
+      alt: "Generalitat de Catalunya",
+    },
     fundingNote:
-      "Financiado por el Departamento de Empresa y Trabajo de la Generalitat de Catalunya y cofinanciado por el Fondo Social Europeo Plus",
+      "Financiado por el Departamento de Empresa y Trabajo de la Generalitat de Catalunya\ny cofinanciado por el Fondo Social Europeo Plus",
     programBy: "Programa de:",
-    programOrg: "fundación pimec",
+    pimecLogo: {
+      src: "/images/logo-pimec.png",
+      alt: "Fundación pimec",
+    },
     stats: [
       { value: "80h", label: "formación" },
       { value: "100h", label: "mentoría experta" },
@@ -40,78 +48,66 @@ const es = {
   },
   about: {
     label: "¿Qué es Circular Impuls?",
-    titlePrefix: "De tu proyecto en fase inicial a un",
-    titleHighlight: "modelo de negocio validado.",
+    titlePrefix: "",
+    titleHighlight: "",
     paragraphs: [
-      "Iniciativa impulsada por la Generalitat de Catalunya y la Unión Europea, en colaboración con Pimec.",
-      "Circular Impuls te ofrece la formación especializada, la mentoría experta y la validación real que necesitas para convertir tu proyecto de autoconsumo, comunidad energética o modelo circular en un negocio viable.",
-      "Te acompañamos para que aproveches las oportunidades del territorio, superes barreras y construyas un modelo de negocio rentable y escalable.",
+      "Un programa que te ayuda a incorporar los principios de la economía circular en tu negocio, ya esté en marcha o todavía en fase de idea.",
+      "Combina formación especializada, mentoría experta y validación en entornos reales, para convertir tu proyecto de autoconsumo, comunidad energética o modelo circular en una iniciativa viable, sostenible y con potencial real de crecimiento.",
+      "Impulsado por la Fundación Pimec, con la colaboración del Departamento de Empresa y Trabajo de la Generalitat de Catalunya, y cofinanciado por la Unión Europea.",
+      "Da igual si vienes de una empresa consolidada, tienes una idea en desarrollo o lideras una spin-off vinculada al territorio: este programa es para ti.",
     ],
     cardTitle: "Tu proyecto en marcha",
     cardText:
       "El sol, los recursos locales y la comunidad, convertidos en proyectos.",
   },
   areas: {
-    label: "Ámbitos de formación y trabajo",
-    titleLine1: "¿Tienes un proyecto en fase inicial?",
-    titleLine2: "Elige tu ámbito.",
+    label: "¿A quién va dirigido?",
+    titleLine1: "Empresas, emprendedores",
+    titleLine2: "y spin-offs en el Pallars.",
     description:
-      "El programa se estructura en tres ámbitos temáticos. Cada participante desarrolla su proyecto dentro de uno de ellos, con formación y mentoría específicas.",
+      "Para participar necesitas una empresa o idea relacionada con el Pallars y trabajar en alguna de estas líneas estratégicas:",
     items: [
       {
-        icon: "sun",
-        title: "Autoconsumo energético",
-        subtitle: "Solar y otras fuentes",
+        icon: "cycle",
+        title: "Economía circular",
+        subtitle: "Reducción y reutilización",
         bullets: [
           {
-            sector: "Turismo",
-            text: "cubrir la demanda estacional y reducir costes en temporada alta.",
+            sector: "",
+            text: "Reducción de residuos, reutilización y alargamiento de la vida útil de los recursos, nuevos modelos circulares en industria ligera, servicios o recursos locales.",
           },
+        ],
+      },
+      {
+        icon: "sun",
+        title: "Energía renovable",
+        subtitle: "Autoconsumo y comunidades",
+        bullets: [
           {
-            sector: "Industria ligera",
-            text: "energía propia para los procesos productivos.",
+            sector: "",
+            text: "Proyectos de autoconsumo, comunidades energéticas, soluciones energéticas para turismo, industria, comercio, pymes, municipios o ciudadanía.",
           },
+        ],
+      },
+      {
+        icon: "leaf",
+        title: "Sostenibilidad",
+        subtitle: "Competitividad y medioambiente",
+        bullets: [
           {
-            sector: "Comercio y servicios",
-            text: "menos factura y más resiliencia.",
+            sector: "",
+            text: "Estrategias ambientales que refuercen la competitividad y la rentabilidad del negocio.",
           },
         ],
       },
       {
         icon: "network",
-        title: "Comunidades energéticas",
-        subtitle: "Gestión colectiva local",
+        title: "Gestión de recursos",
+        subtitle: "Optimización del consumo",
         bullets: [
           {
-            sector: "Municipios",
-            text: "gestión colectiva y gobernanza local de la energía.",
-          },
-          {
-            sector: "Pymes",
-            text: "generación y excedentes compartidos entre socios.",
-          },
-          {
-            sector: "Ciudadanía",
-            text: "participación, ahorro compartido y acompañamiento.",
-          },
-        ],
-      },
-      {
-        icon: "cycle",
-        title: "Modelos circulares",
-        subtitle: "Recursos sin desperdicios",
-        bullets: [
-          {
-            sector: "Industria ligera",
-            text: "reutilización de recursos y producto como servicio.",
-          },
-          {
-            sector: "Servicios",
-            text: "servitización y gestión energética y recurrente.",
-          },
-          {
-            sector: "Recursos locales",
-            text: "aprovechamiento eficiente, sin desperdicios.",
+            sector: "",
+            text: "Optimización del consumo de agua, energía y otros recursos, mejora en la gestión de materiales vinculados a la actividad económica de la comarca.",
           },
         ],
       },
@@ -121,95 +117,93 @@ const es = {
     titlePrefix: "Nuestra",
     titleHighlight: "metodología",
     subtitle:
-      "De la idea al modelo validado, con una hoja de ruta clara para crecer.",
+      "Un itinerario híbrido que combina formación, acompañamiento y experiencia práctica, adaptado a tu ritmo para que puedas hacer crecer tu proyecto sin forzar los tiempos.",
     steps: [
       {
         number: "01",
-        title: "Definir",
+        title: "Tecnología e innovación (50h)",
         description:
-          "Tu proyecto y tu modelo de negocio. Pon las bases con foco y método.",
-        progress: 100,
+          "20 horas presenciales y prácticas + 30 horas de formación asíncrona. Descubre cómo aplicar Inteligencia Artificial, IoT, Big Data y Biotecnología para detectar nuevas oportunidades de negocio en economía circular, energía y sostenibilidad.",
+        note: "Incluye una visita técnica sectorial para conocer experiencias reales y casos de éxito.",
+        progress: 25,
       },
       {
         number: "02",
-        title: "Validar",
+        title: "Gestión empresarial (30h)",
         description:
-          "Que funciona en la realidad, mediante pilotos reales con empresas y agentes locales.",
-        progress: 45,
+          "Estructura tu propuesta de valor, valida la viabilidad económica de tu proyecto y define una estrategia comercial sólida.",
+        note: "La formación es online y culmina con una jornada presencial de trabajo y networking.",
+        progress: 50,
       },
       {
         number: "03",
-        title: "Poner en marcha",
+        title: "Mentorías one to one (100h)",
         description:
-          "Con un plan de crecimiento y escalabilidad claro, listo para ir más allá del territorio.",
-        progress: 20,
+          "Acompañamiento personalizado con profesionales expertos para avanzar en tu hoja de ruta tecnológica, consolidar tu modelo financiero y explorar oportunidades de financiación y acceso a capital.",
+        progress: 75,
+      },
+      {
+        number: "04",
+        title: "Demo Day (14 de diciembre de 2026)",
+        description:
+          "Presenta tu proyecto ante un jurado de personas expertas, potenciales inversores y actores clave del ecosistema empresarial e innovador del Pallars.",
+        note: "Tu oportunidad para mostrar resultados, validar tu modelo de negocio y generar nuevas alianzas de crecimiento.",
+        progress: 100,
       },
     ],
   },
   pillars: {
-    titlePrefix: "Pilares del",
-    titleHighlight: "Programa",
-    subtitle:
-      "Cero fricción con tu negocio. Formato adaptado a ti y a tu estilo de vida",
+    titlePrefix: "¿Por qué",
+    titleHighlight: "Circular Impuls?",
     items: [
       {
-        icon: "clock",
-        accent: "purple",
-        title: "Mentorías personalizadas",
-        description: "100 horas de mentorías personalizadas y seguimiento experto.",
+        heading: "Porque la validación lo es todo.",
+        body: "Casi el 90% de los proyectos empresariales no llegan a consolidarse por lanzar productos o servicios sin validar bien las necesidades del mercado. Circular Impuls reduce ese riesgo: creas un piloto real, validas tu propuesta de valor y contrastas tu modelo financiero con expertos antes de invertir en serio.",
       },
       {
-        icon: "graduation",
-        accent: "green",
-        title: "Formación especializada",
-        description: "115 horas de formación en tecnología, innovación y gestión.",
+        heading: "Porque el mercado lo exige.",
+        body: "La transición hacia el autoconsumo, la eficiencia energética y la economía circular ya no es solo una cuestión de sostenibilidad o responsabilidad corporativa. Es una vía para ganar competitividad, reducir costes, abrir nuevas fuentes de valor y adaptarte a un entorno regulatorio cada vez más exigente.",
       },
       {
-        icon: "flask",
-        accent: "purple",
-        title: "Validación de MVPs",
-        description: "Posibilidad de validación de MVPs en entornos reales y seguros.",
-      },
-      {
-        icon: "handshake",
-        accent: "green",
-        title: "Conexión con inversores",
-        description: "Conexión con inversores y actores clave del sector.",
+        heading: "Porque toca pasar de la idea a la acción.",
+        body: "Este programa combina formación especializada, mentoría individualizada y validación práctica para que conviertas una oportunidad en un modelo de negocio viable, escalable y arraigado en el Pallars.",
       },
     ],
   },
   impact: {
-    label: "Ejes del programa",
-    title: "Acompañamiento real, en cifras",
-    description: "Formación, mentoría y validación en entornos reales.",
+    label: "",
+    title: "Y porque Circular Impuls te ofrece:",
+    description: "",
     stats: [
-      { value: "80", unit: "h", label: "Horas mínimas de formación especializada" },
-      { value: "100", unit: "h", label: "Horas de mentoría experta y seguimiento" },
+      { value: "80", unit: "h", label: "de formación especializada" },
+      { value: "100", unit: "h", label: "de mentoría individualizada" },
     ],
     badges: [
-      "Pilotos reales con empresas y agentes locales",
-      "Actividades presenciales en el territorio",
-      "Formación presencial + online asíncrona",
+      "Visitas técnicas sectoriales",
+      "Acceso a expertos y red de agentes del territorio",
+      "Presentación final ante inversores y agentes clave",
     ],
   },
   cta: {
-    label: "Convocatoria abierta",
-    titleLine1: "¿Listo para impulsar",
-    titleHighlight: "tu proyecto?",
+    label: "Plazas limitadas",
+    titleLine1: "Plazas",
+    titleHighlight: "limitadas.",
     description:
-      "Minimiza el riesgo. Acelera tu ejecución. Las plazas para la edición de septiembre – diciembre 2026 están estrictamente limitadas para garantizar la máxima calidad y el acompañamiento personalizado de cada proyecto.",
+      "Empieza el 16 de septiembre de 2026 con sesión inaugural presencial de 10 a 12h.",
     form: {
-      firstName: "Nombre",
-      lastName: "Apellidos",
+      name: "Nombre",
       email: "Correo electrónico",
       phone: "Teléfono",
-      project: "Empresa o proyecto",
-      message: "Motivo de la inscripción",
+      location: "Ubicación",
+      hasCompany: "¿Tienes empresa?",
+      hasCompanyYes: "Sí",
+      hasCompanyNo: "No",
+      sector: "Sector",
       consent:
         "Acepto que mis datos se traten para gestionar mi inscripción al programa, de acuerdo con la política de privacidad.",
-      submit: "Presenta tu candidatura al Programa PRIMER 2026 →",
+      submit: "Inscríbete →",
       submitting: "Enviando...",
-      success: "Candidatura enviada. Nos pondremos en contacto pronto.",
+      success: "Inscripción enviada. Nos pondremos en contacto pronto.",
       error: "No se ha podido enviar. Inténtalo de nuevo más tarde.",
     },
   },

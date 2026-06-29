@@ -32,12 +32,12 @@ export function InscriptionForm({ locale, form }: InscriptionFormProps) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          firstName: formData.get("firstName"),
-          lastName: formData.get("lastName") || undefined,
+          name: formData.get("name"),
           email: formData.get("email"),
           phone: formData.get("phone"),
-          project: formData.get("project"),
-          message: formData.get("message"),
+          location: formData.get("location"),
+          hasCompany: formData.get("hasCompany"),
+          sector: formData.get("sector"),
           locale,
           consent: formData.get("consent") === "on",
           website: formData.get("website"),
@@ -63,27 +63,15 @@ export function InscriptionForm({ locale, form }: InscriptionFormProps) {
       noValidate
     >
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block sm:col-span-1">
+        <label className="block sm:col-span-2">
           <span className={cn(ctaType.formLabel, "mb-1.5 block text-[#c4ccd5]")}>
-            {form.firstName} *
+            {form.name} *
           </span>
           <input
             type="text"
-            name="firstName"
+            name="name"
             required
-            autoComplete="given-name"
-            className={inputClassName}
-          />
-        </label>
-
-        <label className="block sm:col-span-1">
-          <span className={cn(ctaType.formLabel, "mb-1.5 block text-[#c4ccd5]")}>
-            {form.lastName}
-          </span>
-          <input
-            type="text"
-            name="lastName"
-            autoComplete="family-name"
+            autoComplete="name"
             className={inputClassName}
           />
         </label>
@@ -116,29 +104,58 @@ export function InscriptionForm({ locale, form }: InscriptionFormProps) {
 
         <label className="block sm:col-span-2">
           <span className={cn(ctaType.formLabel, "mb-1.5 block text-[#c4ccd5]")}>
-            {form.project} *
+            {form.location} *
           </span>
           <input
             type="text"
-            name="project"
+            name="location"
             required
+            autoComplete="address-level2"
             className={inputClassName}
           />
         </label>
 
-        <label className="block sm:col-span-2">
+        <fieldset className="block sm:col-span-1">
+          <legend className={cn(ctaType.formLabel, "mb-1.5 block text-[#c4ccd5]")}>
+            {form.hasCompany} *
+          </legend>
+          <div className="flex gap-4 rounded-xl border border-white/15 bg-white/5 px-4 py-3">
+            <label className="flex cursor-pointer items-center gap-2">
+              <input
+                type="radio"
+                name="hasCompany"
+                value="yes"
+                required
+                className="accent-brand-green"
+              />
+              <span className={cn(ctaType.formInput, "text-white")}>{form.hasCompanyYes}</span>
+            </label>
+            <label className="flex cursor-pointer items-center gap-2">
+              <input
+                type="radio"
+                name="hasCompany"
+                value="no"
+                className="accent-brand-green"
+              />
+              <span className={cn(ctaType.formInput, "text-white")}>{form.hasCompanyNo}</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <label className="block sm:col-span-1">
           <span className={cn(ctaType.formLabel, "mb-1.5 block text-[#c4ccd5]")}>
-            {form.message} *
+            {form.sector} *
           </span>
-          <textarea
-            name="message"
+          <input
+            type="text"
+            name="sector"
             required
-            rows={4}
-            className={cn(inputClassName, "resize-y min-h-28")}
+            className={inputClassName}
           />
         </label>
       </div>
 
+      {/* Honeypot */}
       <label className="absolute -left-[9999px]" aria-hidden tabIndex={-1}>
         <span>Website</span>
         <input type="text" name="website" tabIndex={-1} autoComplete="off" />
@@ -154,16 +171,18 @@ export function InscriptionForm({ locale, form }: InscriptionFormProps) {
         <span className={cn(ctaType.formConsent, "text-[#aeb6c0]")}>{form.consent}</span>
       </label>
 
+      <div className="mt-6 flex justify-center">
       <button
         type="submit"
         disabled={status === "submitting" || status === "success"}
         className={cn(
           ctaType.formSubmit,
-          "mt-6 w-full rounded-full bg-brand-green px-10 py-4 text-brand-ink transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto",
+          "w-full rounded-full bg-brand-green px-10 py-4 text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto",
         )}
       >
         {status === "submitting" ? form.submitting : form.submit}
       </button>
+      </div>
 
       {status === "success" && (
         <p className={cn(ctaType.formMessage, "mt-4 text-brand-green")} role="status">

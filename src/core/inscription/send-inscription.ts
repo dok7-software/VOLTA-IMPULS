@@ -46,17 +46,15 @@ async function brevoPost(apiKey: string, path: string, body: unknown) {
 }
 
 function buildNotificationHtml(data: InscriptionInput) {
-  const fullName = [data.firstName, data.lastName].filter(Boolean).join(" ");
-
   return `
-    <h2>Nova inscripció al Programa PRIMER 2026</h2>
-    <p><strong>Nom:</strong> ${fullName}</p>
+    <h2>Nova inscripció al Programa Circular Impuls 2026</h2>
+    <p><strong>Nom:</strong> ${data.name}</p>
     <p><strong>Email:</strong> ${data.email}</p>
     <p><strong>Telèfon:</strong> ${data.phone}</p>
-    <p><strong>Projecte / empresa:</strong> ${data.project}</p>
+    <p><strong>Ubicació:</strong> ${data.location}</p>
+    <p><strong>Té empresa:</strong> ${data.hasCompany === "yes" ? "Sí" : "No"}</p>
+    <p><strong>Sector:</strong> ${data.sector}</p>
     <p><strong>Idioma:</strong> ${data.locale.toUpperCase()}</p>
-    <p><strong>Motiu / missatge:</strong></p>
-    <p>${data.message.replace(/\n/g, "<br />")}</p>
   `;
 }
 
@@ -66,11 +64,11 @@ export async function sendInscription(data: InscriptionInput) {
   const contactBody: Record<string, unknown> = {
     email: data.email,
     attributes: {
-      FIRSTNAME: data.firstName,
-      LASTNAME: data.lastName ?? "",
+      FIRSTNAME: data.name,
       SMS: data.phone,
-      PROJECT: data.project,
-      MESSAGE: data.message,
+      LOCATION: data.location,
+      HAS_COMPANY: data.hasCompany,
+      SECTOR: data.sector,
       LOCALE: data.locale,
     },
     updateEnabled: true,
@@ -83,14 +81,16 @@ export async function sendInscription(data: InscriptionInput) {
   await brevoPost(config.apiKey, "/contacts", contactBody);
 
   if (config.notifyEmail && config.senderEmail) {
-    const fullName = [data.firstName, data.lastName].filter(Boolean).join(" ");
-
-    await brevoPost(config.apiKey, "/smtp/email", {
-      sender: { name: config.senderName, email: config.senderEmail },
-      to: [{ email: config.notifyEmail }],
-      replyTo: { email: data.email, name: fullName },
-      subject: `Nova inscripció: ${fullName}`,
-      htmlContent: buildNotificationHtml(data),
-    });
+    try {
+      await brevoPost(config.apiKey, "/smtp/email", {
+        sender: { name: config.senderName, email: config.senderEmail },
+        to: [{ email: config.notifyEmail }],
+        replyTo: { email: data.email, name: data.name },
+        subject: `Nova inscripció: ${data.name}`,
+        htmlContent: buildNotificationHtml(data),
+      });
+    } catch (err) {
+      console.error("[inscription] email notification failed (contact was saved):", err);
+    }
   }
 }
