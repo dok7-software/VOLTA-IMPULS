@@ -43,7 +43,7 @@ const es = {
       { value: "80h", label: "formación" },
       { value: "100h", label: "mentoría experta" },
       { value: "Pilotos", label: "reales" },
-      { value: "Inicio", label: "14 agosto 2026" },
+      { value: "Inicio", label: "14 septiembre 2026" },
     ],
   },
   about: {

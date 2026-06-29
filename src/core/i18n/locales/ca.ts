@@ -43,7 +43,7 @@ const ca = {
       { value: "80h", label: "formació" },
       { value: "100h", label: "mentoria experta" },
       { value: "Pilots", label: "reals" },
-      { value: "Inici", label: "14 agost 2026" },
+      { value: "Inici", label: "14 setembre 2026" },
     ],
   },
   about: {
