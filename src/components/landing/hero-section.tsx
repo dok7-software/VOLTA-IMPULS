@@ -34,7 +34,7 @@ function HeroPartnerLogo({
 
 export function HeroSection({ content }: HeroSectionProps) {
   return (
-    <section className="relative -mt-16 flex h-dvh max-h-dvh flex-col overflow-hidden bg-[#0b0f14] pt-16 sm:-mt-24 sm:pt-24">
+    <section className="relative flex h-[calc(100svh-4rem)] max-h-[calc(100svh-4rem)] flex-col overflow-hidden bg-[#0b0f14] sm:h-[calc(100svh-6rem)] sm:max-h-[calc(100svh-6rem)]">
       <Image
         src="/images/hero.png"
         alt={content.imageAlt}
@@ -50,7 +50,7 @@ export function HeroSection({ content }: HeroSectionProps) {
           variant="tight"
           className="flex flex-col py-4 @max-h-[820px]:py-3 sm:min-h-0 sm:flex-1 sm:py-8 lg:py-10"
         >
-          <div className={cn(heroContentClassName, "shrink-0 pt-14 pb-14 sm:py-0")}>
+          <div className={cn(heroContentClassName, "shrink-0 pt-8 pb-6 sm:py-0")}>
             <div className="ml-4 inline-flex w-fit items-center gap-2.5 rounded-full border border-brand-green/55 bg-[rgba(8,11,15,.35)] px-4 py-2 sm:ml-12 sm:px-5 sm:py-2.5">
               <span className="h-2 w-2 rounded-full bg-brand-green shadow-[0_0_10px_#17d479]" />
               <span className={cn(heroType.badge, "text-[#cfe9d9]")}>

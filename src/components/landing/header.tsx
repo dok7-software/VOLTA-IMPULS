@@ -38,7 +38,7 @@ export function LandingHeader({ locale, brand, nav }: LandingHeaderProps) {
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 w-full border-b transition-[background-color,border-color,backdrop-filter] duration-300",
+          "relative z-50 w-full border-b transition-[background-color,border-color,backdrop-filter] duration-300",
           scrolled || menuOpen
             ? "border-white/10 bg-[#0b0f14]/90 backdrop-blur-md"
             : "border-transparent bg-transparent",
