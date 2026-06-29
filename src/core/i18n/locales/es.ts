@@ -12,7 +12,7 @@ const es = {
   },
   hero: {
     imageAlt: "Personas caminando por la ciudad",
-    badge: "Plazas abiertas · Inicio 16 de septiembre de 2026",
+    badge: "Plazas abiertas · Inicio 14 de agosto de 2026",
     titleLine1: "Tu modelo de negocio,",
     titleArticle: "",
     titleHighlight: "más sostenible y más rentable",
@@ -43,7 +43,7 @@ const es = {
       { value: "80h", label: "formación" },
       { value: "100h", label: "mentoría experta" },
       { value: "Pilotos", label: "reales" },
-      { value: "Inicio", label: "16 septiembre 2026" },
+      { value: "Inicio", label: "14 agosto 2026" },
     ],
   },
   about: {
@@ -172,7 +172,7 @@ const es = {
   },
   impact: {
     label: "",
-    title: "Y porque Circular Impuls te ofrece:",
+    title: "Circular Impuls te ofrece:",
     description: "",
     stats: [
       { value: "80", unit: "h", label: "de formación especializada" },
@@ -189,7 +189,7 @@ const es = {
     titleLine1: "Plazas",
     titleHighlight: "limitadas.",
     description:
-      "Empieza el 16 de septiembre de 2026 con sesión inaugural presencial de 10 a 12h.",
+      "Empieza el 14 de agosto de 2026 con sesión inaugural presencial de 10 a 12h.",
     form: {
       name: "Nombre",
       email: "Correo electrónico",

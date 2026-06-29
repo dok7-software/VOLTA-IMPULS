@@ -12,7 +12,7 @@ const ca = {
   },
   hero: {
     imageAlt: "Persones caminant per la ciutat",
-    badge: "Places obertes · Inici 16 de setembre de 2026",
+    badge: "Places obertes · Inici 14 d'agost de 2026",
     titleLine1: "El teu model empresarial més sostenible:",
     titleArticle: "",
     titleHighlight: "Energia, Recursos i Circularitat",
@@ -43,7 +43,7 @@ const ca = {
       { value: "80h", label: "formació" },
       { value: "100h", label: "mentoria experta" },
       { value: "Pilots", label: "reals" },
-      { value: "Inici", label: "16 setembre 2026" },
+      { value: "Inici", label: "14 agost 2026" },
     ],
   },
   about: {
@@ -172,7 +172,7 @@ const ca = {
   },
   impact: {
     label: "",
-    title: "I perquè Circular Impuls t'ofereix:",
+    title: "Circular Impuls t'ofereix:",
     description: "",
     stats: [
       { value: "80", unit: "h", label: "de formació especialitzada" },
@@ -189,7 +189,7 @@ const ca = {
     titleLine1: "Places",
     titleHighlight: "limitades.",
     description:
-      "Comença el 16 de setembre de 2026 amb sessió inaugural presencial de 10 a 12h.",
+      "Comença el 14 d'agost de 2026 amb sessió inaugural presencial de 10 a 12h.",
     form: {
       name: "Nom",
       email: "Correu electrònic",
