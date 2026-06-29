@@ -23,9 +23,9 @@ function SocialIcon({ children }: { children: React.ReactNode }) {
 export function LandingFooter({ brand, content }: LandingFooterProps) {
   return (
     <footer className={cn(footerType.body, "border-t border-white/6 bg-[#080b0f]")}>
-      <Container className="grid grid-cols-2 gap-10 py-16 sm:grid-cols-4 sm:gap-8 lg:gap-12">
+      <Container className="grid grid-cols-1 gap-8 py-12 sm:grid-cols-4 sm:gap-8 sm:py-16 lg:gap-12">
         {/* Col 1 — Brand */}
-        <div className="col-span-2 flex flex-col items-start sm:col-span-1">
+        <div className="flex flex-col items-start sm:col-span-1">
           <p className={cn(footerType.brand, "mb-4 text-white")}>{brand}</p>
           <p className="mb-5 max-w-60 text-[#7e8893]">{content.description}</p>
           <div className="flex gap-2.5">
@@ -55,7 +55,7 @@ export function LandingFooter({ brand, content }: LandingFooterProps) {
         <div className="hidden sm:block" />
 
         {/* Col 4 — Contact */}
-        <div className="col-span-2 flex flex-col items-start sm:col-span-1">
+        <div className="flex flex-col items-start sm:col-span-1">
           <p className={cn(footerType.columnTitle, "mb-5 text-brand-green")}>
             {content.contactTitle}
           </p>

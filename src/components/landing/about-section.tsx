@@ -12,11 +12,11 @@ export function AboutSection({ content }: AboutSectionProps) {
   return (
     <section
       id="programa"
-      className="flex min-h-screen items-center bg-brand-cream text-brand-ink"
+      className="flex min-h-screen items-center overflow-hidden bg-brand-cream text-brand-ink"
     >
-      <Container className="grid w-full items-center gap-16 py-24 lg:grid-cols-2 lg:gap-20 lg:py-30">
-        <div>
-          <h2 className={cn(aboutType.title, "mb-9")}>
+      <Container className="grid w-full items-center gap-10 py-14 sm:gap-16 sm:py-20 lg:grid-cols-2 lg:gap-20 lg:py-30">
+        <div className="min-w-0">
+          <h2 className={cn(aboutType.title, "mb-5 sm:mb-9")}>
             {content.label.split("Circular Impuls?").map((part, i, arr) => (
               i < arr.length - 1 ? (
                 <span key={i}>{part}<span className="text-brand-green-dark">Circular Impuls?</span></span>
@@ -34,7 +34,7 @@ export function AboutSection({ content }: AboutSectionProps) {
         </div>
 
         <div className="rounded-3xl border border-white/7 bg-[#0d1218] p-8 lg:p-10">
-          <div className="flex h-72 items-center justify-center sm:h-90">
+          <div className="flex h-56 items-center justify-center sm:h-72 lg:h-90">
             <CircularDiagram />
           </div>
           <div className="rounded-2xl bg-brand-cream p-5 text-brand-ink sm:p-6">

@@ -13,9 +13,9 @@ export function PillarsSection({ content }: PillarsSectionProps) {
       id="pilars"
       className="flex min-h-screen items-center bg-[#efe9dc] text-brand-ink"
     >
-      <Container className="w-full py-24 lg:py-30">
+      <Container className="w-full py-14 sm:py-20 lg:py-30">
         <div>
-          <h2 className={cn(pillarsType.title, "mb-16 text-center")}>
+          <h2 className={cn(pillarsType.title, "mb-8 text-center sm:mb-12 lg:mb-16")}>
             {content.titlePrefix}{" "}
             <span className="text-brand-green-dark">{content.titleHighlight}</span>
           </h2>

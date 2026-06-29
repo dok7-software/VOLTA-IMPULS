@@ -10,7 +10,7 @@ const THIN_ARC = OUTER_C * 0.25;
 
 export function CircularDiagram() {
   return (
-    <svg width="320" height="320" viewBox="0 0 320 320" className="mx-auto">
+    <svg width="100%" height="100%" viewBox="0 0 320 320" className="mx-auto max-w-[320px]">
       <circle
         cx={CX}
         cy={CY}
