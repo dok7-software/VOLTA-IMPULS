@@ -75,8 +75,8 @@ export function AreasSection({ content }: AreasSectionProps) {
     >
       <div className="pointer-events-none absolute -top-28 -right-28 h-120 w-120 rounded-full bg-[radial-gradient(circle,rgba(23,212,121,.10),transparent_70%)]" />
 
-      <Container className="relative py-24 lg:py-30">
-        <div className="mb-16 text-center">
+      <Container className="relative py-14 sm:py-20 lg:py-30">
+        <div className="mb-10 text-center sm:mb-16">
           <SectionLabel className={cn(areasType.label, "mb-7")}>{content.label}</SectionLabel>
           <h2 className={cn(areasType.title, "mb-5 text-white")}>
             {content.titleLine1}

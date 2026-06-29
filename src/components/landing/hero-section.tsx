@@ -34,7 +34,7 @@ function HeroPartnerLogo({
 
 export function HeroSection({ content }: HeroSectionProps) {
   return (
-    <section className="relative -mt-24 flex h-dvh max-h-dvh flex-col overflow-hidden bg-[#0b0f14] pt-24">
+    <section className="relative -mt-16 flex h-dvh max-h-dvh flex-col overflow-hidden bg-[#0b0f14] pt-16 sm:-mt-24 sm:pt-24">
       <Image
         src="/images/hero.png"
         alt={content.imageAlt}
@@ -48,10 +48,10 @@ export function HeroSection({ content }: HeroSectionProps) {
       <div className="relative flex min-h-0 flex-1 flex-col">
         <Container
           variant="tight"
-          className="flex min-h-0 flex-1 flex-col py-4 @max-h-[820px]:py-3 sm:py-8 lg:py-10"
+          className="flex flex-col py-4 @max-h-[820px]:py-3 sm:py-8 lg:py-10"
         >
-          <div className={cn(heroContentClassName, "shrink-0")}>
-            <div className="ml-12 inline-flex w-fit items-center gap-2.5 rounded-full border border-brand-green/55 bg-[rgba(8,11,15,.35)] px-5 py-2.5">
+          <div className={cn(heroContentClassName, "shrink-0 py-12 sm:py-0")}>
+            <div className="ml-4 inline-flex w-fit items-center gap-2.5 rounded-full border border-brand-green/55 bg-[rgba(8,11,15,.35)] px-4 py-2 sm:ml-12 sm:px-5 sm:py-2.5">
               <span className="h-2 w-2 rounded-full bg-brand-green shadow-[0_0_10px_#17d479]" />
               <span className={cn(heroType.badge, "text-[#cfe9d9]")}>
                 {content.badge}
@@ -91,30 +91,30 @@ export function HeroSection({ content }: HeroSectionProps) {
             </div>
           </div>
 
-          <div aria-hidden="true" className="min-h-0 flex-1" />
         </Container>
 
-        <Container variant="tight" className="shrink-0 pb-4 @max-h-[820px]:pb-3 sm:pb-6 lg:pb-8">
+        <Container variant="tight" className="mt-8 shrink-0 pb-4 sm:mt-auto sm:pb-6 lg:pb-8">
           <div className="mb-3 grid w-full grid-cols-2 items-end gap-3 @max-h-[820px]:mb-2 sm:mb-4 sm:flex sm:flex-wrap sm:items-end sm:justify-end sm:gap-6 lg:mb-6 lg:gap-10">
             <div className="text-left">
               <p className={cn(heroType.fundedBy, "mb-1.5 text-[#c4ccd5] sm:mb-2.5")}>
                 {content.fundedBy}
               </p>
-              <div className="mb-1 flex flex-wrap items-center justify-start gap-3 sm:mb-2 sm:gap-4">
+              <div className="mb-1 flex flex-wrap items-center justify-start gap-2 sm:mb-2 sm:gap-4">
                 <HeroPartnerLogo
                   src={content.fseLogo.src}
                   alt={content.fseLogo.alt}
+                  className="h-6 w-auto max-w-36 sm:h-8 sm:max-w-44"
                 />
                 <HeroPartnerLogo
                   src={content.generalitatLogo.src}
                   alt={content.generalitatLogo.alt}
-                  className="sm:h-11"
+                  className="h-6 w-auto max-w-36 sm:h-10 sm:max-w-44 sm:h-11"
                 />
               </div>
               <p
                 className={cn(
                   heroType.fundingNote,
-                  "max-w-[24rem] whitespace-pre-line text-[#9aa3ae] sm:max-w-[26rem]",
+                  "hidden max-w-[24rem] whitespace-pre-line text-[#9aa3ae] sm:block sm:max-w-[26rem]",
                 )}
               >
                 {content.fundingNote}
@@ -127,7 +127,7 @@ export function HeroSection({ content }: HeroSectionProps) {
               <HeroPartnerLogo
                 src={content.pimecLogo.src}
                 alt={content.pimecLogo.alt}
-                className="ml-auto h-7 sm:ml-0 sm:h-9"
+                className="ml-auto h-6 sm:ml-0 sm:h-9"
               />
             </div>
           </div>

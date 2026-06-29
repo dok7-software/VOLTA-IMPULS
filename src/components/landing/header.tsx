@@ -20,40 +20,96 @@ type LandingHeaderProps = {
 
 export function LandingHeader({ locale, brand, nav }: LandingHeaderProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
-
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 w-full border-b transition-[background-color,border-color,backdrop-filter] duration-300",
-        scrolled
-          ? "border-white/10 bg-[#0b0f14]/90 backdrop-blur-md"
-          : "border-transparent bg-transparent",
-      )}
-    >
-      <Container variant="tight">
-        <nav className="flex h-24 items-center justify-between">
-          <Link
-            href={`/${locale}`}
-            className={cn(sharedType.brand, "text-white")}
+    <>
+      <header
+        className={cn(
+          "sticky top-0 z-50 w-full border-b transition-[background-color,border-color,backdrop-filter] duration-300",
+          scrolled || menuOpen
+            ? "border-white/10 bg-[#0b0f14]/90 backdrop-blur-md"
+            : "border-transparent bg-transparent",
+        )}
+      >
+        <Container variant="tight">
+          <nav className="flex h-16 items-center justify-between sm:h-24">
+            <Link
+              href={`/${locale}`}
+              className={cn(sharedType.brand, "whitespace-nowrap text-[13px] tracking-[0.08em] text-white sm:text-xl sm:tracking-[0.18em]")}
+            >
+              {brand}
+            </Link>
+
+            {/* Desktop nav */}
+            <div className="hidden shrink-0 items-center gap-8 sm:flex">
+              <LocaleSwitcher locale={locale} />
+              <ButtonLink href="#contacte" className={cn(sharedType.buttonSm, "px-6 py-3 text-sm")}>
+                {nav.cta}
+              </ButtonLink>
+            </div>
+
+            {/* Mobile hamburger */}
+            <button
+              type="button"
+              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((v) => !v)}
+              className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 sm:hidden"
+            >
+              <span
+                className={cn(
+                  "block h-0.5 w-6 bg-white transition-transform duration-300",
+                  menuOpen && "translate-y-2 rotate-45",
+                )}
+              />
+              <span
+                className={cn(
+                  "block h-0.5 w-6 bg-white transition-opacity duration-300",
+                  menuOpen && "opacity-0",
+                )}
+              />
+              <span
+                className={cn(
+                  "block h-0.5 w-6 bg-white transition-transform duration-300",
+                  menuOpen && "-translate-y-2 -rotate-45",
+                )}
+              />
+            </button>
+          </nav>
+        </Container>
+      </header>
+
+      {/* Mobile menu overlay */}
+      <div
+        className={cn(
+          "fixed inset-0 z-40 flex flex-col bg-[#0b0f14] pt-16 transition-[opacity,visibility] duration-300 sm:hidden",
+          menuOpen ? "visible opacity-100" : "invisible opacity-0",
+        )}
+      >
+        <div className="flex flex-1 flex-col items-center justify-center gap-10 px-6">
+          <LocaleSwitcher locale={locale} />
+          <ButtonLink
+            href="#contacte"
+            className={cn(sharedType.button, "w-full max-w-xs px-8 py-4 text-center text-base")}
+            onClick={() => setMenuOpen(false)}
           >
-            {brand}
-          </Link>
-          <div className="flex items-center gap-8">
-            <LocaleSwitcher locale={locale} />
-            <ButtonLink href="#contacte" className={cn(sharedType.buttonSm, "px-6 py-3")}>
-              {nav.cta}
-            </ButtonLink>
-          </div>
-        </nav>
-      </Container>
-    </header>
+            {nav.cta}
+          </ButtonLink>
+        </div>
+      </div>
+    </>
   );
 }
