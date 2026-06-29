@@ -12,7 +12,7 @@ const ca = {
   },
   hero: {
     imageAlt: "Persones caminant per la ciutat",
-    badge: "Places obertes fins al [data per confirmar]",
+    badge: "Places obertes · Inici 16 de setembre de 2026",
     titleLine1: "El teu model empresarial més sostenible:",
     titleArticle: "",
     titleHighlight: "Energia, Recursos i Circularitat",
@@ -43,7 +43,7 @@ const ca = {
       { value: "80h", label: "formació" },
       { value: "100h", label: "mentoria experta" },
       { value: "Pilots", label: "reals" },
-      { value: "Inici", label: "(per confirmar)" },
+      { value: "Inici", label: "16 setembre 2026" },
     ],
   },
   about: {

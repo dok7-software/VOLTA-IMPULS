@@ -12,7 +12,7 @@ const es = {
   },
   hero: {
     imageAlt: "Personas caminando por la ciudad",
-    badge: "Plazas abiertas hasta el [fecha por confirmar]",
+    badge: "Plazas abiertas · Inicio 16 de septiembre de 2026",
     titleLine1: "Tu modelo de negocio,",
     titleArticle: "",
     titleHighlight: "más sostenible y más rentable",
@@ -43,7 +43,7 @@ const es = {
       { value: "80h", label: "formación" },
       { value: "100h", label: "mentoría experta" },
       { value: "Pilotos", label: "reales" },
-      { value: "Inicio", label: "(por confirmar)" },
+      { value: "Inicio", label: "16 septiembre 2026" },
     ],
   },
   about: {
