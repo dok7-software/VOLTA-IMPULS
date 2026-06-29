@@ -34,7 +34,7 @@ function HeroPartnerLogo({
 
 export function HeroSection({ content }: HeroSectionProps) {
   return (
-    <section className="relative flex h-[calc(100dvh-4rem)] max-h-[calc(100dvh-4rem)] flex-col overflow-hidden bg-[#0b0f14] sm:h-[calc(100dvh-6rem)] sm:max-h-[calc(100dvh-6rem)]">
+    <section className="relative flex h-[calc(100svh-4rem)] max-h-[calc(100svh-4rem)] flex-col overflow-hidden bg-[#0b0f14] sm:h-[calc(100svh-6rem)] sm:max-h-[calc(100svh-6rem)]">
       <Image
         src="/images/hero.png"
         alt={content.imageAlt}
@@ -135,7 +135,7 @@ export function HeroSection({ content }: HeroSectionProps) {
           <div
             className={cn(
               heroType.stat,
-              "hidden flex-wrap gap-4 border-t border-white/12 pt-3 text-[#dfe4ea] @max-h-[820px]:gap-3 @max-h-[820px]:pt-2.5 sm:flex sm:gap-8 sm:pt-5 lg:gap-12",
+              "flex flex-wrap gap-4 border-t border-white/12 pt-3 text-[#dfe4ea] @max-h-[820px]:gap-3 @max-h-[820px]:pt-2.5 sm:gap-8 sm:pt-5 lg:gap-12",
             )}
           >
             {content.stats.map((stat) => (
