@@ -85,9 +85,7 @@ export function HeroSection({ content }: HeroSectionProps) {
               <ButtonLink href="#contacte" variant="secondary">
                 {content.ctaPrimary}
               </ButtonLink>
-              <ButtonLink href="#programa" variant="outline-light">
-                {content.ctaSecondary}
-              </ButtonLink>
+              <div aria-hidden className="h-[54px] shrink-0 sm:hidden" />
             </div>
           </div>
 
