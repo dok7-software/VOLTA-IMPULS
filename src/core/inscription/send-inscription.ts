@@ -2,12 +2,16 @@ import type { InscriptionInput } from "@/core/inscription/schema";
 
 const BREVO_API = "https://api.brevo.com/v3";
 
+const SENDER_EMAIL = "info@circularimpuls.cat";
+const SENDER_NAME = "Circular Impuls";
+const NOTIFY_EMAILS = [
+  "ddj.alarcon@gmail.com",
+  "diego.alarcon@dok7.io",
+];
+
 type BrevoConfig = {
   apiKey: string;
   listId?: number;
-  senderEmail?: string;
-  senderName: string;
-  notifyEmail?: string;
 };
 
 function getBrevoConfig(): BrevoConfig {
@@ -22,9 +26,6 @@ function getBrevoConfig(): BrevoConfig {
   return {
     apiKey,
     listId: listId && !Number.isNaN(listId) ? listId : undefined,
-    senderEmail: process.env.BREVO_SENDER_EMAIL,
-    senderName: process.env.BREVO_SENDER_NAME ?? "Circular Impuls",
-    notifyEmail: process.env.INSCRIPTION_NOTIFY_EMAIL,
   };
 }
 
@@ -46,16 +47,84 @@ async function brevoPost(apiKey: string, path: string, body: unknown) {
 }
 
 function buildNotificationHtml(data: InscriptionInput) {
-  return `
-    <h2>Nova inscripció al Programa Circular Impuls 2026</h2>
-    <p><strong>Nom:</strong> ${data.name}</p>
-    <p><strong>Email:</strong> ${data.email}</p>
-    <p><strong>Telèfon:</strong> ${data.phone}</p>
-    <p><strong>Ubicació:</strong> ${data.location}</p>
-    <p><strong>Té empresa:</strong> ${data.hasCompany === "yes" ? "Sí" : "No"}</p>
-    <p><strong>Sector:</strong> ${data.sector}</p>
-    <p><strong>Idioma:</strong> ${data.locale.toUpperCase()}</p>
-  `;
+  const rows: Array<{ label: string; value: string }> = [
+    { label: "Nom", value: data.name },
+    { label: "Email", value: data.email },
+    { label: "Telèfon", value: data.phone },
+    { label: "Ubicació", value: data.location },
+    { label: "Té empresa", value: data.hasCompany === "yes" ? "Sí" : "No" },
+    { label: "Sector", value: data.sector },
+    { label: "Idioma", value: data.locale.toUpperCase() },
+  ];
+
+  const rowsHtml = rows
+    .map(
+      ({ label, value }) => `
+      <tr>
+        <td style="padding:10px 16px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9aa3ae;white-space:nowrap;width:1%;vertical-align:top;border-bottom:1px solid #1e2530;">${label}</td>
+        <td style="padding:10px 16px;font-size:15px;color:#e8ebef;vertical-align:top;border-bottom:1px solid #1e2530;">${value}</td>
+      </tr>`,
+    )
+    .join("");
+
+  return `<!DOCTYPE html>
+<html lang="ca">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background-color:#0b0f14;font-family:Arial,Helvetica,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0b0f14;padding:40px 16px;">
+    <tr>
+      <td align="center">
+        <table width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
+
+          <!-- Header -->
+          <tr>
+            <td style="padding-bottom:28px;text-align:center;">
+              <div style="display:inline-block;padding:6px 16px;border:1px solid rgba(23,212,121,0.45);border-radius:999px;margin-bottom:20px;">
+                <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#cfe9d9;">Nova inscripció</span>
+              </div>
+              <div style="font-size:26px;font-weight:700;color:#ffffff;letter-spacing:-0.02em;line-height:1.2;">
+                Circular <span style="color:#17d479;">Impuls</span>
+              </div>
+              <div style="font-size:13px;color:#9aa3ae;margin-top:6px;">Programa 2026</div>
+            </td>
+          </tr>
+
+          <!-- Card -->
+          <tr>
+            <td style="background-color:#0d1218;border:1px solid rgba(255,255,255,0.07);border-radius:16px;overflow:hidden;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding:16px 16px 0;border-bottom:1px solid #1e2530;">
+                    <p style="margin:0 0 12px;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#17d479;">Dades del sol·licitant</p>
+                  </td>
+                </tr>
+                ${rowsHtml}
+              </table>
+            </td>
+          </tr>
+
+          <!-- Reply CTA -->
+          <tr>
+            <td style="padding-top:24px;text-align:center;">
+              <a href="mailto:${data.email}" style="display:inline-block;padding:12px 28px;background-color:#17d479;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;border-radius:999px;letter-spacing:0.04em;">Respondre a ${data.name}</a>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding-top:32px;text-align:center;font-size:11px;color:#4a5568;line-height:1.6;">
+              Circular Impuls · circularimpuls.cat<br>
+              Finançat pel Departament d'Empresa i Treball de la Generalitat de Catalunya<br>
+              i cofinançat pel Fons Social Europeu Plus
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
 }
 
 export async function sendInscription(data: InscriptionInput) {
@@ -65,7 +134,7 @@ export async function sendInscription(data: InscriptionInput) {
     email: data.email,
     attributes: {
       FIRSTNAME: data.name,
-      SMS: data.phone,
+      PHONE: data.phone,
       LOCATION: data.location,
       HAS_COMPANY: data.hasCompany,
       SECTOR: data.sector,
@@ -80,17 +149,15 @@ export async function sendInscription(data: InscriptionInput) {
 
   await brevoPost(config.apiKey, "/contacts", contactBody);
 
-  if (config.notifyEmail && config.senderEmail) {
-    try {
-      await brevoPost(config.apiKey, "/smtp/email", {
-        sender: { name: config.senderName, email: config.senderEmail },
-        to: [{ email: config.notifyEmail }],
-        replyTo: { email: data.email, name: data.name },
-        subject: `Nova inscripció: ${data.name}`,
-        htmlContent: buildNotificationHtml(data),
-      });
-    } catch (err) {
-      console.error("[inscription] email notification failed (contact was saved):", err);
-    }
+  try {
+    await brevoPost(config.apiKey, "/smtp/email", {
+      sender: { name: SENDER_NAME, email: SENDER_EMAIL },
+      to: NOTIFY_EMAILS.map((email) => ({ email })),
+      replyTo: { email: data.email, name: data.name },
+      subject: `[Circular Impuls] Nova inscripció de ${data.name}`,
+      htmlContent: buildNotificationHtml(data),
+    });
+  } catch (err) {
+    console.error("[inscription] email notification failed (contact was saved):", err);
   }
 }
