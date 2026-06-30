@@ -25,7 +25,8 @@ export function InscriptionForm({ locale, form }: InscriptionFormProps) {
     event.preventDefault();
     setStatus("submitting");
 
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
     try {
       const response = await fetch("/api/inscription", {
@@ -50,7 +51,7 @@ export function InscriptionForm({ locale, form }: InscriptionFormProps) {
       }
 
       setStatus("success");
-      event.currentTarget.reset();
+      form.reset();
     } catch {
       setStatus("error");
     }
@@ -144,12 +145,11 @@ export function InscriptionForm({ locale, form }: InscriptionFormProps) {
 
         <label className="block sm:col-span-1">
           <span className={cn(ctaType.formLabel, "mb-1.5 block text-[#c4ccd5]")}>
-            {form.sector} *
+            {form.sector}
           </span>
           <input
             type="text"
             name="sector"
-            required
             className={inputClassName}
           />
         </label>
