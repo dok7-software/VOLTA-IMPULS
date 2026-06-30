@@ -48,7 +48,7 @@ export function HeroSection({ content }: HeroSectionProps) {
       <div className="relative flex min-h-0 flex-1 flex-col">
         <Container
           variant="tight"
-          className="flex flex-col py-2 @max-h-[820px]:py-2 sm:min-h-0 sm:flex-1 sm:py-8 lg:py-10"
+          className="relative z-10 flex flex-col py-2 @max-h-[820px]:py-2 sm:min-h-0 sm:flex-1 sm:py-8 lg:py-10"
         >
           <div className={cn(heroContentClassName, "shrink-0 pt-4 pb-3 sm:py-0")}>
             <div className="ml-4 inline-flex w-fit items-center gap-2.5 rounded-full border border-brand-green/55 bg-[rgba(8,11,15,.35)] px-4 py-2 sm:ml-12 sm:px-5 sm:py-2.5">
@@ -85,9 +85,7 @@ export function HeroSection({ content }: HeroSectionProps) {
               <ButtonLink href="#contacte" variant="secondary">
                 {content.ctaPrimary}
               </ButtonLink>
-              <ButtonLink href="#programa" variant="outline-light">
-                {content.ctaSecondary}
-              </ButtonLink>
+              <div aria-hidden className="h-[54px] shrink-0 sm:hidden" />
             </div>
           </div>
 
