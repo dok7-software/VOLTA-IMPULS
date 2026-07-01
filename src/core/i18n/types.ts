@@ -28,6 +28,8 @@ export type Dictionary = {
     pimecLogo: { src: string; alt: string };
     fundingNote: string;
     programBy: string;
+    xeLogo: { src: string; alt: string };
+    programaPrimerLogo: { src: string; alt: string };
     stats: { value: string; label: string }[];
   };
   about: {
@@ -76,6 +78,11 @@ export type Dictionary = {
     description: string;
     stats: { value: string; unit: string; label: string }[];
     badges: string[];
+  };
+  collaborators: {
+    title: string;
+    pallarsActiuLogo: { src: string; alt: string };
+    phimisterLogo: { src: string; alt: string };
   };
   cta: {
     label: string;

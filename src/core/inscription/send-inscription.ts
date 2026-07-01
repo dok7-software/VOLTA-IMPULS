@@ -114,8 +114,8 @@ function buildNotificationHtml(data: InscriptionInput) {
           <tr>
             <td style="padding-top:32px;text-align:center;font-size:11px;color:#4a5568;line-height:1.6;">
               Circular Impuls · circularimpuls.cat<br>
-              Finançat pel Departament d'Empresa i Treball de la Generalitat de Catalunya<br>
-              i cofinançat pel Fons Social Europeu Plus
+              Aquesta actuació està impulsada i subvencionada pel Departament d'Empresa i Treball<br>
+              i cofinanciada pel Fons Social Europeu Plus
             </td>
           </tr>
 

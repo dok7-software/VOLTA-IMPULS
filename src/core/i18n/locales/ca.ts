@@ -33,11 +33,19 @@ const ca = {
       alt: "Generalitat de Catalunya",
     },
     fundingNote:
-      "Finançat pel Departament d'Empresa i Treball de la Generalitat de Catalunya i cofinançat pel Fons Social Europeu Plus",
+      "Aquesta actuació està impulsada i subvencionada pel Departament d'Empresa i Treball\ni cofinanciada pel Fons Social Europeu Plus",
     programBy: "Programa de:",
     pimecLogo: {
       src: "/images/logo-pimec.png",
       alt: "Fundació pimec",
+    },
+    xeLogo: {
+      src: "/images/logo_xe.png",
+      alt: "XE",
+    },
+    programaPrimerLogo: {
+      src: "/images/logo_programa_primer.png",
+      alt: "Programa Primer",
     },
     stats: [
       { value: "80h", label: "formació" },
@@ -184,6 +192,17 @@ const ca = {
       "Presentació final davant inversors i agents clau",
     ],
   },
+  collaborators: {
+    title: "En col·laboració amb:",
+    pallarsActiuLogo: {
+      src: "/images/logo-pallars-actiu.png",
+      alt: "Pallars Actiu",
+    },
+    phimisterLogo: {
+      src: "/images/logo-phimister.png",
+      alt: "Phimister Business School",
+    },
+  },
   cta: {
     label: "Places limitades",
     titleLine1: "Places",
@@ -221,7 +240,7 @@ const ca = {
       { label: "FAQ", href: "#faq" },
     ],
     contact: [
-      { label: "info@circularimpuls.cat", href: "mailto:info@circularimpuls.cat" },
+      { label: "secretaria@fundaciopimec.org", href: "mailto:secretaria@fundaciopimec.org" },
       { label: "Inscriu-t'hi", href: "#contacte" },
     ],
     sponsors: [

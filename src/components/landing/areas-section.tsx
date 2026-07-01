@@ -75,8 +75,8 @@ export function AreasSection({ content }: AreasSectionProps) {
     >
       <div className="pointer-events-none absolute -top-28 -right-28 h-120 w-120 rounded-full bg-[radial-gradient(circle,rgba(23,212,121,.10),transparent_70%)]" />
 
-      <Container className="relative py-14 sm:py-20 lg:py-30">
-        <div className="mb-10 text-center sm:mb-16">
+      <Container className="relative py-12 sm:py-16 lg:py-24">
+        <div className="mb-8 text-center sm:mb-12">
           <SectionLabel className={cn(areasType.label, "mb-7")}>{content.label}</SectionLabel>
           <h2 className={cn(areasType.title, "mb-5 text-white")}>
             {content.titleLine1}
@@ -92,15 +92,15 @@ export function AreasSection({ content }: AreasSectionProps) {
           {content.items.map((area) => (
             <article
               key={area.title}
-              className="rounded-2xl border border-white/7 bg-[#262038] p-8 lg:p-9"
+              className="rounded-2xl border border-white/7 bg-[#262038] p-6 lg:p-8"
             >
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green">
                 <AreaIconSvg type={area.icon} />
               </div>
               <h3 className={cn(areasType.itemTitle, "mb-1.5 text-white")}>
                 {area.title}
               </h3>
-              <p className={cn(areasType.itemSubtitle, "mb-6 text-brand-green")}>
+              <p className={cn(areasType.itemSubtitle, "mb-5 text-brand-green")}>
                 {area.subtitle}
               </p>
               <ul className="flex flex-col gap-4">
