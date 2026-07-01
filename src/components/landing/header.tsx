@@ -10,8 +10,6 @@ import { Container } from "@/components/landing/container";
 import { LocaleSwitcher } from "@/components/i18n/locale-switcher";
 import { cn } from "@/lib/utils";
 
-const SCROLL_THRESHOLD = 24;
-
 type LandingHeaderProps = {
   locale: Locale;
   brand: string;
@@ -19,15 +17,7 @@ type LandingHeaderProps = {
 };
 
 export function LandingHeader({ locale, brand, nav }: LandingHeaderProps) {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -36,14 +26,7 @@ export function LandingHeader({ locale, brand, nav }: LandingHeaderProps) {
 
   return (
     <>
-      <header
-        className={cn(
-          "absolute top-0 left-0 z-50 w-full border-b transition-[background-color,border-color,backdrop-filter] duration-300",
-          scrolled || menuOpen
-            ? "border-white/10 bg-[#0b0f14]/90 backdrop-blur-md"
-            : "border-transparent bg-transparent",
-        )}
-      >
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0b0f14]/95 backdrop-blur-md">
         <Container variant="tight">
           <nav className="flex h-14 items-center justify-between sm:h-20">
             <Link

@@ -15,20 +15,20 @@ type HeroSectionProps = {
 
 export function HeroSection({ content }: HeroSectionProps) {
   return (
-    <section className="relative flex h-svh flex-col overflow-hidden bg-[#0b0f14] sm:h-auto sm:min-h-[130svh]">
+    <section className="relative flex flex-col overflow-x-hidden bg-[#0b0f14] sm:overflow-hidden">
       <Image
         src="/images/hero.png"
         alt={content.imageAlt}
         fill
         priority
-        className="object-cover object-center sm:object-contain"
+        className="object-cover object-center sm:object-bottom"
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-linear-to-b from-[rgba(8,11,15,.45)] via-[rgba(8,11,15,.35)] to-[rgba(8,11,15,.78)]" />
 
       <HeroSectionMobile content={content} />
 
-      <div className="relative hidden min-h-0 flex-1 flex-col sm:flex">
+      <div className="relative hidden flex-col sm:flex">
         <Container
           variant="tight"
           className="relative z-10 flex flex-col py-8 pt-24 lg:py-10 lg:pt-28"

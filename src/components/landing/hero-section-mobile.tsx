@@ -11,9 +11,9 @@ type HeroSectionMobileProps = {
 
 export function HeroSectionMobile({ content }: HeroSectionMobileProps) {
   return (
-    <div className="relative z-10 flex h-svh flex-col overflow-y-auto sm:hidden">
+    <div className="relative z-10 flex flex-col sm:hidden">
       <Container variant="tight" className="flex flex-col pt-16 pb-4">
-        <div className="inline-flex w-fit items-center gap-2 rounded-full border border-brand-green/55 bg-[rgba(8,11,15,.35)] px-3.5 py-1.5">
+        <div className="my-6 inline-flex w-fit items-center gap-2 rounded-full border border-brand-green/55 bg-[rgba(8,11,15,.35)] px-3.5 py-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-brand-green shadow-[0_0_10px_#17d479]" />
           <span className={cn(heroType.badge, "text-[#cfe9d9]")}>{content.badge}</span>
         </div>
@@ -38,7 +38,7 @@ export function HeroSectionMobile({ content }: HeroSectionMobileProps) {
         </ButtonLink>
       </Container>
 
-      <Container variant="tight" className="mt-auto shrink-0 space-y-4 pb-5">
+      <Container variant="tight" className="shrink-0 space-y-4 pb-5 pt-6">
         <div>
           <p className={cn(heroType.fundedBy, "mb-2 text-[#c4ccd5]")}>{content.fundedBy}</p>
           <div className="flex flex-col items-start gap-2">

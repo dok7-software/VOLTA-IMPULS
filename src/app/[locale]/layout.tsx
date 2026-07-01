@@ -38,7 +38,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <>
       <SetHtmlLang locale={locale as Locale} />
-      <div className="bg-[#0b0f14] text-[#e8ebef] antialiased">
+      <div className="relative bg-[#0b0f14] text-[#e8ebef] antialiased">
         <LandingHeader locale={locale as Locale} brand={dict.brand} nav={dict.nav} />
         {children}
       </div>
