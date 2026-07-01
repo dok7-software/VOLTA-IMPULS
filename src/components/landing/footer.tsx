@@ -23,7 +23,7 @@ function SocialIcon({ children }: { children: React.ReactNode }) {
 export function LandingFooter({ brand, content }: LandingFooterProps) {
   return (
     <footer className={cn(footerType.body, "border-t border-white/6 bg-[#080b0f]")}>
-      <Container className="grid grid-cols-1 gap-8 py-12 sm:grid-cols-4 sm:gap-8 sm:py-16 lg:gap-12">
+      <Container className="grid grid-cols-1 gap-6 py-10 sm:grid-cols-4 sm:gap-7 sm:py-12 lg:gap-10">
         {/* Col 1 — Brand */}
         <div className="flex flex-col items-start sm:col-span-1">
           <p className={cn(footerType.brand, "mb-4 text-white")}>{brand}</p>

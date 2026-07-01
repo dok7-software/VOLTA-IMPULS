@@ -69,16 +69,16 @@ export function MethodologySection({ content }: MethodologySectionProps) {
       id="metodologia"
       className="flex min-h-screen items-center bg-brand-cream text-brand-ink"
     >
-      <Container className="w-full py-14 sm:py-20 lg:py-30">
-        <h2 className={cn(methodologyType.title, "mb-4 sm:mb-6")}>
+      <Container className="w-full py-12 sm:py-16 lg:py-24">
+        <h2 className={cn(methodologyType.title, "mb-3 sm:mb-5")}>
           {content.titlePrefix}{" "}
           <span className="text-brand-green-dark">{content.titleHighlight}</span>
         </h2>
-        <p className={cn(methodologyType.subtitle, "mb-10 text-brand-ink sm:mb-16")}>
+        <p className={cn(methodologyType.subtitle, "mb-8 text-brand-ink sm:mb-12")}>
           {content.subtitle}
         </p>
 
-        <div className="grid gap-8 sm:grid-cols-2 sm:gap-12 lg:gap-14">
+        <div className="grid gap-7 sm:grid-cols-2 sm:gap-10 lg:gap-12">
           {content.steps.map((step) => (
             <StepCard key={step.number} step={step} />
           ))}

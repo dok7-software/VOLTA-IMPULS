@@ -14,7 +14,7 @@ export function AboutSection({ content }: AboutSectionProps) {
       id="programa"
       className="flex min-h-screen items-center overflow-hidden bg-brand-cream text-brand-ink"
     >
-      <Container className="grid w-full items-center gap-10 py-14 sm:gap-16 sm:py-20 lg:grid-cols-2 lg:gap-20 lg:py-30">
+      <Container className="grid w-full items-center gap-8 py-12 sm:gap-12 sm:py-16 lg:grid-cols-2 lg:gap-16 lg:py-24">
         <div className="min-w-0">
           <h2 className={cn(aboutType.title, "mb-5 sm:mb-9")}>
             {content.label.split("Circular Impuls?").map((part, i, arr) => (
@@ -33,11 +33,11 @@ export function AboutSection({ content }: AboutSectionProps) {
           ))}
         </div>
 
-        <div className="rounded-3xl border border-white/7 bg-[#0d1218] p-8 lg:p-10">
-          <div className="flex h-56 items-center justify-center sm:h-72 lg:h-90">
+        <div className="rounded-3xl border border-white/7 bg-[#0d1218] p-6 lg:p-8">
+          <div className="flex h-48 items-center justify-center sm:h-64 lg:h-80">
             <CircularDiagram />
           </div>
-          <div className="rounded-2xl bg-brand-cream p-5 text-brand-ink sm:p-6">
+          <div className="rounded-2xl bg-brand-cream p-4 text-brand-ink sm:p-5">
             <p className={cn(aboutType.cardTitle, "mb-1.5")}>{content.cardTitle}</p>
             <p className={cn(aboutType.cardText, "text-brand-ink")}>{content.cardText}</p>
           </div>

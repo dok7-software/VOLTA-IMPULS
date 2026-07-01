@@ -38,14 +38,14 @@ export function LandingHeader({ locale, brand, nav }: LandingHeaderProps) {
     <>
       <header
         className={cn(
-          "relative z-50 w-full border-b transition-[background-color,border-color,backdrop-filter] duration-300",
+          "absolute top-0 left-0 z-50 w-full border-b transition-[background-color,border-color,backdrop-filter] duration-300",
           scrolled || menuOpen
             ? "border-white/10 bg-[#0b0f14]/90 backdrop-blur-md"
             : "border-transparent bg-transparent",
         )}
       >
         <Container variant="tight">
-          <nav className="flex h-16 items-center justify-between sm:h-24">
+          <nav className="flex h-14 items-center justify-between sm:h-20">
             <Link
               href={`/${locale}`}
               className={cn(sharedType.brand, "whitespace-nowrap text-[13px] tracking-[0.08em] text-white sm:text-xl sm:tracking-[0.18em]")}
